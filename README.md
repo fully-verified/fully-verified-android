@@ -6,11 +6,15 @@ The first step is to set the value at least to `minSdkVersion=21` in file `build
 
 ### Adding dependencies
 
-In the Android Studio environment, it is possible to add a library module by using the command: „File → New → New module...”. From the list „New module” select „Import .JAR or .AAR Package” and click „Next”. In the field „File name” provide access path to file `com.fully_verified-fullyverifiedsdk-1.44.3-release.aar`. As a „Subproject name”, provide „fullyverifiedsdk” and click „Finish”.
+In the Android Studio environment in application module create subfolder libs. Next, copy 
+com.fully_verified-fullyverifiedsdk-1.48.1-release.aar into libs folder.
 
 The next step is to add a dependency to the created library module by modifying the file `build.gradle` and placing the following entry in the section „dependencies”:
 
-`compile project(':fullyverifiedsdk')`
+```gradle
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.1-release.aar")
+```
 
 Since the library uses the AndroidX library and other, the following dependency must be added:
 
@@ -18,12 +22,18 @@ Since the library uses the AndroidX library and other, the following dependency 
 
 dependencies {
 	//other dependencies
-    implementation project(':fullyverifiedsdk')
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.1-release.aar")
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "com.android.installreferrer:installreferrer:1.1"
+    implementation "com.google.android.gms:play-services-vision:20.1.2"
+    implementation "com.google.firebase:firebase-core:16.0.8"
+    implementation "com.google.firebase:firebase-messaging:17.4.0"
     implementation "androidx.core:core:1.1.0"
     implementation "androidx.core:core-ktx:1.1.0"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
     implementation "androidx.appcompat:appcompat:1.1.0"
-    implementation "androidx.preference:preference:1.1.0'"
+    implementation "androidx.preference:preference:1.1.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.vectordrawable:vectordrawable:1.0.0"
     implementation "androidx.annotation:annotation:1.0.0"
@@ -53,6 +63,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.9.0"
     annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
     implementation "com.makeramen:roundedimageview:2.3.0"
+    implementation "io.sentry:sentry-android:1.7.16"
 }
 
 ```
