@@ -7,13 +7,13 @@ The first step is to set the value at least to `minSdkVersion=21` in file `build
 ### Adding dependencies
 
 In the Android Studio environment in application module create subfolder libs. Next, copy 
-com.fully_verified-fullyverifiedsdk-1.48.1-release.aar into libs folder.
+com.fully_verified-fullyverifiedsdk-1.48.2-release.aar into libs folder.
 
 The next step is to add a dependency to the created library module by modifying the file `build.gradle` and placing the following entry in the section „dependencies”:
 
 ```gradle
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.1-release.aar")
+    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.2-release.aar")
 ```
 
 Since the library uses the AndroidX library and other, the following dependency must be added:
@@ -23,7 +23,7 @@ Since the library uses the AndroidX library and other, the following dependency 
 dependencies {
 	//other dependencies
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.1-release.aar")
+    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.2-release.aar")
     implementation "androidx.multidex:multidex:2.0.1"
     implementation "com.android.installreferrer:installreferrer:1.1"
     implementation "com.google.android.gms:play-services-vision:20.1.2"
@@ -62,7 +62,6 @@ dependencies {
     implementation "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4"
     implementation "com.github.bumptech.glide:glide:4.9.0"
     annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
-    implementation "com.makeramen:roundedimageview:2.3.0"
     implementation "io.sentry:sentry-android:1.7.16"
 }
 
