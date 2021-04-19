@@ -7,13 +7,13 @@ The first step is to set the value at least to `minSdkVersion=21` in file `build
 ### Adding dependencies
 
 In the Android Studio environment in application module create subfolder libs. Next, copy 
-com.fully_verified-fullyverifiedsdk-1.48.2-release.aar into libs folder.
+com.fully_verified-fullyverifiedsdk-1.48.3-release.aar into libs folder.
 
 The next step is to add a dependency to the created library module by modifying the file `build.gradle` and placing the following entry in the section „dependencies”:
 
 ```gradle
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.2-release.aar")
+    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.3-release.aar")
 ```
 
 Since the library uses the AndroidX library and other, the following dependency must be added:
@@ -23,7 +23,7 @@ Since the library uses the AndroidX library and other, the following dependency 
 dependencies {
 	//other dependencies
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.2-release.aar")
+    implementation files("libs/com.fully_verified-fullyverifiedsdk-1.48.3-release.aar")
     implementation "androidx.multidex:multidex:2.0.1"
     implementation "com.android.installreferrer:installreferrer:1.1"
     implementation "com.google.android.gms:play-services-vision:20.1.2"
@@ -126,6 +126,11 @@ The following entry should be added to the proguard file:
 -keep class tvi.webrtc.** { *; }
 -keep class com.twilio.video.** { *; }
 -keepattributes InnerClasses
+# Koin rules
+-keepnames class androidx.lifecycle.ViewModel
+-keepclassmembers public class * extends androidx.lifecycle.ViewModel { public <init>(...); }
+-keepclassmembers class com.fully_verified.fullyverifiedsdk.** { public <init>(...); }
+-keepclassmembers class * { public <init>(...); } 
 ```
 
 ### Definition of AndroidManifest file
