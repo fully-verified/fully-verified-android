@@ -38,7 +38,7 @@ The first step is to set the value at least to `minSdkVersion=21` in file `build
 
 Create `libs` folder in project root directory.
 
-Unzip fullyverifiedsdk-1.49.1.zip in the already created `libs` folder.
+Unzip fullyverifiedsdk-1.49.5.zip in the already created `libs` folder.
 
 Next in project `build.gradle` file in section allprojects -> repositories add local maven repository.
 ```gradle
@@ -59,7 +59,7 @@ allprojects {
 The next step is adding a dependency to application module:
 
 ```gradle
-    implementation "com.fully_verified:fullyverifiedsdk:1.49.1"
+    implementation "com.fully_verified:fullyverifiedsdk:1.49.5"
 ```
 
 
