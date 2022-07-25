@@ -113,7 +113,7 @@ public void onVerificationStateChange(String verificationId, FullyVerifiedState 
 Following states will be returned to you class CONNECTING, CONNECTED, WAITING, INPROGRESS, FINISHED, DISCONNECTED.
 
 After that you only need to call Fully-Verified library with a hash which you received from our Verification Create 
-WebService. For further information about Verification Create WebService please read API integration documentation HERE.
+WebService. For further information about Verification Create WebService please read API integration documentation [HERE](https://app.fully-verified.com/customers/docs/integration_manual/).
 
 ```java
 import com.fully_verified.fullyverifiedsdk.FullyVerified;
